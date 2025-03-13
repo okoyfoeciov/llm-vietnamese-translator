@@ -16,12 +16,12 @@ jobs:
       - run: npm install
       - run: npm run build
       - name: Create Build Directory
-        run: mkdir dist
+        run: mkdir dist dist/src
       - name: Copy Files
         run: |
           cp manifest.json dist/
           cp background.js dist/
-          cp src/main.bundle.js dist/
+          cp src/main.bundle.js dist/src/
       - name: Zip Build
         run: zip -r release.zip dist/
       - name: Create or Update Release
