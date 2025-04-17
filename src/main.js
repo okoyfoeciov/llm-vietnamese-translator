@@ -4,6 +4,7 @@ const client = new OpenAI({
     apiKey:
         "YOUR_API_KEY",
     dangerouslyAllowBrowser: true,
+    baseURL: "https://api.x.ai/v1",
 });
 
 const selectedText = window.getSelection().toString();
@@ -14,7 +15,7 @@ if (selectedText) {
         selectedText.replaceAll(/\n\n/g, '\n').replaceAll(/\n/g, '\n\n');
     const stream = await client.chat.completions.create({
         messages: [{ role: "user", content: message }],
-        model: "gpt-4o-mini",
+        model: "grok-3-fast-beta",
         stream: true,
     });
 
